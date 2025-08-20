@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_for_conversion.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/17 21:32:49 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/20 23:04:55 by samamaev         ###   ########.fr       */
+/*   Created: 2025/08/20 15:58:16 by samamaev          #+#    #+#             */
+/*   Updated: 2025/08/20 22:42:20 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-
-int     ft_putnbr_fd(int n, int fd);
-void	ft_putchar_fd(char c, int fd);
-char    ft_for_conversion(char c, va_list args);
-int     ft_print_int(va_list args);
-int	    ft_printf(const char *s, ...);
-
-#endif
+char ft_for_conversion(char c, va_list args)
+{
+    if(c == 'd' || c == 'i')
+        return (ft_print_int(args));
+}
