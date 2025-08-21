@@ -6,13 +6,18 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 17:41:57 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/18 21:24:40 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/21 22:38:11 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	int	proverka;
+
+	proverka = write(fd, &c, 1);
+	if (proverka == -1)
+		return (-1);
+	return (proverka);
 }

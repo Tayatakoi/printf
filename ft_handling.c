@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_handling.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 22:35:26 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/21 20:08:09 by samamaev         ###   ########.fr       */
+/*   Created: 2025/08/21 22:07:08 by samamaev          #+#    #+#             */
+/*   Updated: 2025/08/21 22:24:40 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_int(va_list args)
+int	ft_handling(int *count, int s)
 {
-	int	n;
-
-	n = va_arg(args, int);
-	return (ft_putnbr_fd(n, 1));
+	if (s == -1)
+		return (-1);
+	*count += s;
+	return (0);
 }

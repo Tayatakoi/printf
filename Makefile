@@ -6,13 +6,16 @@
 #    By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/17 21:29:42 by samamaev          #+#    #+#              #
-#    Updated: 2025/08/17 21:36:58 by samamaev         ###   ########.fr        #
+#    Updated: 2025/08/21 22:23:08 by samamaev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-MANDATORY = printf.c
+MANDATORY = ft_printf.c ft_for_conversion.c\
+ft_print_str.c ft_putstr_fd.c \
+ft_print_char.c ft_putchar_fd.c ft_print_int.c\
+ft_putnbr_fd.c ft_handling.c\
 
 OBJ_PATH = ${MANDATORY:.c=.o}
 

@@ -6,16 +6,16 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 18:21:30 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/20 22:50:16 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:14:57 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_fd(int n, int fd)
 {
 	long	da;
-	int	count;
+	int		count;
 
 	count = 0;
 	da = n;
@@ -35,7 +35,7 @@ int	ft_putnbr_fd(int n, int fd)
 		count += ft_putnbr_fd(da / 10, fd);
 		count += ft_putnbr_fd(da % 10, fd);
 	}
-	return(count);
+	return (count);
 }
 // int main (void)
 // {

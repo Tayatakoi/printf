@@ -6,35 +6,35 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 21:29:39 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/20 22:21:16 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/21 22:21:49 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *s, ...)
 {
-    va_list args;
-    int count;
+	va_list	args;
+	int		count;
+	int		ret;
 
-    va_start(args, s);
-    count = 0;
-    while(*s)
-    {
-        if(*s == '%')
-        {
-            s++;
-            if(*s == '\0')
-                return(count);
-            count += ft_for_conversion(*s, args);
-        }
-        else
-        {
-            ft_putchar_fd(s, 1);
-            count++;
-        }
-    s++;
-    }
-    va_end(args);
-    return (count);
+	va_start(args, s);
+	count = 0;
+	while (*s)
+	{
+		if (*s == '%')
+		{
+			s++;
+			if (!*s)
+				return (count);
+			ret = ft_for_conversion(*s, args);
+		}
+		else
+			ret = ft_putchar_fd(*s, 1);
+		if (ft_handling(&count, ret) == -1)
+			return (-1);
+		s++;
+	}
+	va_end(args);
+	return (count);
 }
