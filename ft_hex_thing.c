@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_hex_thing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 22:35:26 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/22 14:34:31 by samamaev         ###   ########.fr       */
+/*   Created: 2025/08/23 17:14:44 by samamaev          #+#    #+#             */
+/*   Updated: 2025/08/23 17:20:21 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_int(va_list args, int *count)
+int	ft_puthex_fd(unsigned long n, int fd, int lowercase, int *count)
 {
-	int	n;
+	char	*base;
 
-	n = va_arg(args, int);
-	return (ft_putnbr_fd(n, 1, count));
+	if (lowercase == 1)
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (n >= 16)
+	{
+		if (ft_puthex_fd(n / 16, fd, lowercase, count) == -1)
+			return (-1);
+	}
+	if (ft_putchar_fd(base[n % 16], fd, count) == -1)
+		return (-1);
+	return (0);
 }

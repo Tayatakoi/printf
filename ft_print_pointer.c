@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 22:35:26 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/22 14:34:31 by samamaev         ###   ########.fr       */
+/*   Created: 2025/08/22 16:05:09 by samamaev          #+#    #+#             */
+/*   Updated: 2025/08/23 17:33:00 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_int(va_list args, int *count)
+int	ft_print_pointer(void *p, int *count)
 {
-	int	n;
-
-	n = va_arg(args, int);
-	return (ft_putnbr_fd(n, 1, count));
+	if (!p)
+	{
+		if (ft_putstr_fd("0x0", 1, count) == -1)
+			return (-1);
+		return (0);
+	}
+	if (ft_putstr_fd("0x", 1, count) == -1)
+		return (-1);
+	return (ft_puthex_fd((unsigned long)p, 1, 1, count));
 }

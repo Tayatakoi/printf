@@ -6,7 +6,7 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:35:12 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/21 22:47:43 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/22 14:31:08 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	ft_putstr_fd(char *s, int fd, int *count)
 			return (-1);
 		i++;
 	}
-	return (i);
+	return (0);
 }

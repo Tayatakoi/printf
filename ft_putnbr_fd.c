@@ -6,36 +6,28 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 18:21:30 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/21 20:14:57 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/22 17:14:31 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(long n, int fd, int *count)
 {
-	long	da;
-	int		count;
-
-	count = 0;
-	da = n;
-	if (da < 0)
+	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		count++;
-		da *= -1;
+		if (ft_putchar_fd('-', fd, count) == -1)
+			return (-1);
+		n = -n;
 	}
-	if (da >= 0 && da <= 9)
+	if (n >= 10)
 	{
-		ft_putchar_fd(da + '0', fd);
-		count++;
+		if (ft_putnbr_fd(n / 10, fd, count) == -1)
+			return (-1);
 	}
-	if (da > 9)
-	{
-		count += ft_putnbr_fd(da / 10, fd);
-		count += ft_putnbr_fd(da % 10, fd);
-	}
-	return (count);
+	if (ft_putchar_fd((n % 10) + '0', fd, count) == -1)
+		return (-1);
+	return (0);
 }
 // int main (void)
 // {
