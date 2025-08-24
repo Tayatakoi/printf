@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handling.c                                      :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 22:07:08 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/24 19:48:11 by samamaev         ###   ########.fr       */
+/*   Created: 2025/08/24 19:23:18 by samamaev          #+#    #+#             */
+/*   Updated: 2025/08/24 20:20:57 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_handling(int *count, int s)
+int	ft_print_hex(va_list args, int lowercase, int *count)
 {
-	if (s <= -1)
+	unsigned int	n;
+
+	n = va_arg(args, unsigned int);
+	if (ft_puthex_fd((unsigned long)n, 1, lowercase, count) == -1)
 		return (-1);
-	*count += s;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 15:58:16 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/23 17:25:54 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/24 20:14:48 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ int	ft_for_conversion(char c, va_list args, int *count)
 {
 	if (c == 'c')
 		return (ft_putchar_fd(va_arg(args, int), 1, count));
-	if (c == 's')
+	else if (c == 's')
 		return (ft_putstr_fd(va_arg(args, char *), 1, count));
-	if (c == 'd' || c == 'i')
+	else if (c == 'd' || c == 'i')
 		return (ft_print_int(args, count));
-	if (c == 'p')
+	else if (c == 'p')
 		return (ft_print_pointer(va_arg(args, void *), count));
 	else if (c == 'u')
-		return (ft_print_unsigned(args));
+		return (ft_print_unsigned(args, count));
 	else if (c == 'x')
-		return (ft_print_hex(args, 1));
+		return (ft_print_hex(args, 1, count));
 	else if (c == 'X')
-		return (ft_print_hex(args, 0));
+		return (ft_print_hex(args, 0, count));
 	return (0);
 }

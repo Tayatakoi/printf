@@ -6,7 +6,7 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 17:41:57 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/22 14:30:47 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/24 19:45:54 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_putchar_fd(char c, int fd, int *count)
 	ret = write(fd, &c, 1);
 	if (ft_handling(count, ret) == -1)
 		return (-1);
-	return (0);
+	return (1);
 }

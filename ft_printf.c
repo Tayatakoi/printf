@@ -6,7 +6,7 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 21:29:39 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/22 14:10:14 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/24 20:18:48 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ft_printf(const char *s, ...)
 			if (!*s)
 				return (count);
 			ret = ft_for_conversion(*s, args, &count);
+			if (ret == -1)
+				return (-1);
 		}
 		else
 			ret = ft_putchar_fd(*s, 1, &count);
