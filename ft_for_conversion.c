@@ -22,5 +22,7 @@ int	ft_for_conversion(char c, va_list args, int *count)
 		return (ft_print_int(args, count));
 	if (c == 'p')
 		return (ft_print_pointer(va_arg(args, void *), count));
+	else if (c == 'u')
+		return (ft_print_unsigned(args));
 	return (0);
 }
