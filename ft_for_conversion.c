@@ -24,5 +24,9 @@ int	ft_for_conversion(char c, va_list args, int *count)
 		return (ft_print_pointer(va_arg(args, void *), count));
 	else if (c == 'u')
 		return (ft_print_unsigned(args));
+	else if (c == 'x')
+		return (ft_print_hex(args, 1));
+	else if (c == 'X')
+		return (ft_print_hex(args, 0));
 	return (0);
 }
