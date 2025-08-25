@@ -6,7 +6,7 @@
 /*   By: samamaev <samamaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 21:29:39 by samamaev          #+#    #+#             */
-/*   Updated: 2025/08/24 20:18:48 by samamaev         ###   ########.fr       */
+/*   Updated: 2025/08/25 16:25:26 by samamaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,16 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (count);
 }
+// #include <stdio.h>
+// int main(void)
+// {
+//     ft_printf("Hello, world!\n");
+//     ft_printf("Name: %s\n", "saif");
+//     ft_printf("Value: %d\n", 42);
+//     ft_printf("Progress: 100%% done\n");
+//     ft_printf("User: %s | Age: %d | Hex: %x\n", "Ammar", 30, 255);
+//     ft_printf("This is bad %");
+// 	printf("This is bad %");
+// 	ft_printf("ABC %d\n", 123);
+//     return (0);
+// }
